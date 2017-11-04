@@ -51,6 +51,7 @@ class NotificationType(models.Model):
         db_table = settings.DB_TABLE_PREFIX + '_notificationtype'
         verbose_name = _('type')
         verbose_name_plural = _('types')
+        app_label = "django_nyt"
 
     @classmethod
     def get_by_key(cls, key, content_type=None):
@@ -103,6 +104,7 @@ class Settings(models.Model):
         db_table = settings.DB_TABLE_PREFIX + '_settings'
         verbose_name = _('settings')
         verbose_name_plural = _('settings')
+        app_label = "django_nyt"
 
     def clean(self):
         if not self.is_default:
@@ -193,6 +195,7 @@ class Subscription(models.Model):
         db_table = settings.DB_TABLE_PREFIX + '_subscription'
         verbose_name = _('subscription')
         verbose_name_plural = _('subscriptions')
+        app_label = "django_nyt"
 
 
 @python_2_unicode_compatible
@@ -325,3 +328,4 @@ class Notification(models.Model):
         verbose_name = _('notification')
         verbose_name_plural = _('notifications')
         ordering = ('-id',)
+        app_label = django_nyt
